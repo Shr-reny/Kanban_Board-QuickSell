@@ -1,0 +1,11 @@
+.kanban-board {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}

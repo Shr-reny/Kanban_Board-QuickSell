@@ -1,5 +1,5 @@
 import React from 'react';
-import KanbanBoard from './components/kanbanBoard';
+import KanbanBoard from './components/KanbanBoard';
 import './App.css';
 
 const App = () => {

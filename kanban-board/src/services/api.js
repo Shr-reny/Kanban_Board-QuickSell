@@ -4,4 +4,4 @@ const api = axios.create({
   baseURL: 'https://api.quicksell.co/v1/internal/frontend-assignment',
 });
 
-export const getTickets = () => api.get('/');
+export const fetchTickets = () => api.get('/');

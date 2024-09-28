@@ -1,5 +1,5 @@
 import React from 'react';
-import './Card.css';
+import './styling/cards.css';
 
 const priorityColors = {
   4: '#e53e3e', // Urgent
@@ -9,7 +9,7 @@ const priorityColors = {
   0: '#718096', // No priority
 };
 
-const Card = ({ ticket }) => {
+const cards = ({ ticket }) => {
   const priorityColor = priorityColors[ticket.priority] || '#718096';
 
   return (
@@ -23,4 +23,4 @@ const Card = ({ ticket }) => {
   );
 };
 
-export default Card;
+export default cards;
