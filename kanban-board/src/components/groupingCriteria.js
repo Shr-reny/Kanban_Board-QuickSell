@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./styling/GroupingCriteria.css";
 import { useDispatch, useSelector} from "react-redux";
 import { selectData } from "../services/api";
-import {ReactComponent as Menu} from "./icons/3 dot menu.svg";
+import {AiOutlineUnorderedList} from "react-icons/ai";
 
 const getGroup = () => {
   if(localStorage.getItem("group")){
@@ -57,7 +57,7 @@ const GroupingCriteria = () => {
           onClick={() => setDisplayOnClick(!displayOnClick)}
         >
           {" "}
-          <Menu /> Display
+          <AiOutlineUnorderedList /> Display
         </button>
         {displayOnClick && (
           <>

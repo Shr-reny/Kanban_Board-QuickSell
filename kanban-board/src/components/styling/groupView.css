@@ -1,5 +1,6 @@
 .dashContainer{
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   align-items: flex-start;
   gap: 10px;
   flex-wrap: wrap;
@@ -16,6 +17,7 @@
   align-content: center;
   flex-direction: column;
   gap: 5px;
-  width : 300px;
+  width : 250px;
   height: max-content;
+  margin-left: 20px;
 }
