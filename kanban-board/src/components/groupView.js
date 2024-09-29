@@ -15,50 +15,63 @@ import "./styling/GroupView.css";
 import Card from "./cards";
 
 const GroupView = () => {
+  // Accessing selectedData and user from the Redux store (SelectDataReducer)
   const { selectedData, user } = useSelector(
     (state) => state.SelectDataReducer
   );
 
+  // Mapping status and priority to corresponding icons
   const iconMap = {
     "Done": <Done />,
     "In progress": <InProgress />,
-    "Backlog" : <Backlog/>,
+    "Backlog" : <Backlog />,
     "Urgent": <Urgent />,
     "Todo": <ToDo />,
     "Cancelled": <Cancelled />,
-    "No priority": <No/>,
-    "Low" : <Low/>,
-    "Medium" : <Medium/>,
-    "High" : <High/>
+    "No priority": <No />,
+    "Low" : <Low />,
+    "Medium" : <Medium />,
+    "High" : <High />
   };
 
   return (
     selectedData && (
       <div className="dashContainer" style={{ justifyContent: "space-evenly" }}>
+        {/* Loop through the selectedData array */}
         {selectedData.map((elem, index) => {
           return (
             <>
               <div key={index} className="dashCardContainer">
                 <div className="dashCardHeading flex-sb">
                   <div className="leftView">
+                    {/* Display an icon if grouping is not by user */}
                     {!user ? (
-                        iconMap[elem[index].title] || <Add />):(
-                    " "
+                        iconMap[elem[index].title] || <Add />
+                    ) : (
+                        " " // Placeholder for user grouping
                     )}
+                    {/* Display the title of the group and the count of items */}
                     <span>
-                      {" "}
                       {elem[index]?.title} {elem[index]?.value?.length}
                     </span>
                   </div>
                   <div className="rightView">
+                    {/* Display an Add button and ellipsis for future actions */}
                     <Add />{" "}
                     <span style={{ letterSpacing: "2px" }}>...</span>
                   </div>
                 </div>
                 <div className="dashList flex-gap-10">
+                  {/* Loop through each ticket/task under this group and render a Card */}
                   {elem[index]?.value?.map((elem, ind) => {
                     return (
-                      <Card id={elem.id} title={elem.title} tag={elem.tag} name={elem.title || "Undefined"} />
+                      // Pass data to the Card component (id, title, tags, name)
+                      <Card 
+                        id={elem.id} 
+                        title={elem.title} 
+                        tag={elem.tag} 
+                        name={elem.title || "Undefined"}  // Pass name or "Undefined" if not available
+                      />
                     );
                   })}
                 </div>
