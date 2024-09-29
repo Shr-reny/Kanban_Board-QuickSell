@@ -1,26 +1,29 @@
 import React from 'react';
 import './styling/cards.css';
 
-const priorityColors = {
-  4: '#e53e3e', // Urgent
-  3: '#d69e2e', // High
-  2: '#3182ce', // Medium
-  1: '#38a169', // Low
-  0: '#718096', // No priority
-};
-
-const cards = ({ ticket }) => {
-  const priorityColor = priorityColors[ticket.priority] || '#718096';
-
+const Card = ({id, title, tag, status}) => {
   return (
-    <div className="card" style={{ borderLeftColor: priorityColor }}>
-      <h3>{ticket.title}</h3>
-      <p>{ticket.description}</p>
-      <div className="priority">Priority: {ticket.priority}</div>
-      <div className="status">Status: {ticket.status}</div>
-      <div className="user">User: {ticket.user}</div>
+    <div className="cardContainer flex-gap-10" style={{gap : '5px'}}>
+        <div className="cardHeading flex-sb">
+            <span style={{textTransform : "uppercase"}} className='color-grey'>{id}</span>
+            <div className="imageContainer relative" style={{ width : "30px", height : "30px"}}>
+                <img style={{width : "100%", height : "100%",  borderRadius : "50%" }}  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="UserImage" />
+                <div className="showStatus"></div>
+            </div>
+        </div>
+        <div className="cardTitle" style={{fontWeight : 200}} >
+            <p>{title}</p>
+        </div>
+        <div className="cardTags">
+        <div className="tags color-grey"> ... </div>
+            {
+                tag?.map((elem, index) => {
+                    return <div key={index} className="tags color-grey"> <span>•</span> {elem}</div>
+                })
+            }
+        </div>
     </div>
-  );
-};
+  )
+}
 
-export default cards;
+export default Card;

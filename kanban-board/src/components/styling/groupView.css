@@ -1,16 +1,17 @@
-/* src/components/GroupView.css */
-.group-view {
-    flex-shrink: 0;
-    width: 300px;
-    background-color: #fefefe;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-  }
-  
-  .group-view-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-  
+.dashContainer{
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: rgb(242, 242, 244);
+  padding: 5px 10px;
+}
+
+.dashCardContainer{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  gap: 5px;
+  width : 300px;
+}

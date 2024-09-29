@@ -1,12 +1,30 @@
-import React from 'react';
-import KanbanBoard from './components/KanbanBoard';
+import React, { useEffect } from 'react';
 import './App.css';
+import GroupingCriteria from './components/GroupingCriteria';
+import GroupView from './components/GroupView';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAllData } from './services/api';
 
 const App = () => {
+  const dispatch = useDispatch();
+  const { allTickets } = useSelector(state => state.DataReducer);
+
+  useEffect(() => {
+    dispatch(fetchAllData());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <h1>Kanban Board</h1>
-      <KanbanBoard />
+    <div style={{ paddingTop: "10px" }}>
+      {/* Conditional rendering to check if allTickets has data */}
+      {allTickets && allTickets.length > 0 ? (
+        <>
+          <GroupingCriteria />
+          <hr style={{ marginTop: "10px" }} />
+          <GroupView />
+        </>
+      ) : (
+        <p>No tickets available.</p> // Message when there are no tickets
+      )}
     </div>
   );
 };
