@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import {ReactComponent as Done} from "./icons/Done.svg";
 import {ReactComponent as Add} from "./icons/add.svg";
+import {ReactComponent as InProgress} from "./icons/in-progress.svg";
 import "./styling/GroupView.css";
 import Card from "./cards";
 
@@ -20,7 +21,14 @@ const GroupView = () => {
                 <div className="dashCardHeading flex-sb">
                   <div className="leftView">
                     {!user ? (
-                      <Done />
+                      elem[index]?.status === "ToDo" ? (
+                        <Done />
+                      ) : elem[index]?.status === "In progress" ? (
+                        <InProgress />
+                      ) : elem[index]?.priority === "Urgent" ? (
+                        <InProgress />): (
+                        <Add />
+                      )
                     ) : (
                       <>
                         <div
@@ -33,7 +41,7 @@ const GroupView = () => {
                               height: "100%",
                               borderRadius: "50%",
                             }}
-                            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
+                            src="https://i.ibb.co/t4YBFkm/logo.webp"
                             alt="UserImage"
                           />
                         </div>
