@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import GroupingCriteria from './src/components/GroupingCriteria';
-import GroupView from './src/components/GroupView';
+import GroupingCriteria from './components/GroupingCriteria';
+import GroupView from './components/GroupView';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllData } from './services/api';
 
