@@ -43,22 +43,7 @@ const GroupView = () => {
                   <div className="leftView">
                     {!user ? (
                         iconMap[elem[index].title] || <Add />):(
-                      <>
-                        <div
-                          className="imageContainer relative"
-                          style={{ width: "15px", height: "15px", display : 'inline-block' }}
-                        >
-                          <img
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              borderRadius: "50%",
-                            }}
-                            src="https://i.ibb.co/t4YBFkm/logo.webp"
-                            alt="UserImage"
-                          />
-                        </div>
-                      </>
+                    " "
                     )}
                     <span>
                       {" "}
@@ -73,7 +58,7 @@ const GroupView = () => {
                 <div className="dashList flex-gap-10">
                   {elem[index]?.value?.map((elem, ind) => {
                     return (
-                      <Card id={elem.id} title={elem.title} tag={elem.tag} />
+                      <Card id={elem.id} title={elem.title} tag={elem.tag} name={elem.title || "Undefined"} />
                     );
                   })}
                 </div>

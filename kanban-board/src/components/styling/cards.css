@@ -37,3 +37,16 @@
   border-radius: 5px;
   border: 1px solid silver;
 }
+
+.imageContainer {
+  background: #538455; /* Change to your desired background color */
+  color: white; /* Text color for initials */
+  border-radius: 50%; /* Circle shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold; /* Make initials bold */
+  width: 30px;
+  height: 30px;
+  font-size: 14px; /* Adjust font size if necessary */
+}
